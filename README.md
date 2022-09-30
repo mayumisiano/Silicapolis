@@ -1,1 +1,1 @@
-# blogpessoal-generation
+# Desenvolvimento de um Blogpessoal, projeto Generation
