@@ -7,6 +7,7 @@ import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import logo from './logo.svg';
 import './App.css';
+import CadastroUsuario from './Pages/cadastroUsuario/CadastroUsuario';
 
 function App() {
   return (      
@@ -17,6 +18,8 @@ function App() {
       <Route path="/" element={<Login  />} />
 
       <Route path="/home" element={<Home />} />
+
+      <Route path="/cadastrousuario" element={<CadastroUsuario />} />
 
       <Route path="/login" element={<Login />} />
 
