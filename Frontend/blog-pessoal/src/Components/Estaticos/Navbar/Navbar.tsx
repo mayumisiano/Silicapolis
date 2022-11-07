@@ -23,7 +23,7 @@ function Navbar (){
                         </Box>
 
                         <Link to='/posts' className='text-decorator-none'>
-                        <Box mx={1}>
+                        <Box mx={1} className='cursor'>
                             <Typography variant="h6" color="inherit">
                                 Postagens
                             </Typography>
@@ -31,7 +31,7 @@ function Navbar (){
                         </Link>
 
                         <Link to='/temas' className='text-decorator-none'>
-                        <Box mx={1} style={{ cursor: "pointer" }}>
+                        <Box mx={1} className='cursor'>
                             <Typography variant="h6" color="inherit">
                                 temas
                             </Typography>
