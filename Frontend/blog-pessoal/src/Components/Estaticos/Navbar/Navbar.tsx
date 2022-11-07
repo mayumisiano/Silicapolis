@@ -21,16 +21,23 @@ function Navbar (){
                                 home
                             </Typography>
                         </Box>
-                        <Box mx={1} style={{ cursor: "pointer" }}>
+
+                        <Link to='/posts' className='text-decorator-none'>
+                        <Box mx={1}>
                             <Typography variant="h6" color="inherit">
-                                postagens
+                                Postagens
                             </Typography>
                         </Box>
+                        </Link>
+
+                        <Link to='/temas' className='text-decorator-none'>
                         <Box mx={1} style={{ cursor: "pointer" }}>
                             <Typography variant="h6" color="inherit">
                                 temas
                             </Typography>
                         </Box>
+                        </Link>
+
                         <Box mx={1} style={{ cursor: "pointer" }}>
                             <Typography variant="h6" color="inherit">
                                 cadastrar tema
