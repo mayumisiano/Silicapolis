@@ -1,8 +1,13 @@
 .cursor{
     cursor: pointer;   
-    color: white;
+    color: #fbf6d0;
 }
 
 .text-decorator-none{
-    text-decoration: none;
+    text-decoration: none;    
 }
+
+.silicapolis{
+    color: #fbf6d0;    
+}
+
