@@ -11,31 +11,30 @@ function CadastroPost() {
 
     let navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
-    const [temas, setTemas] = useState<Tema[]>([])
-    const [token, setToken] = useLocalStorage('token');
-
+    const [token, setToken] = useLocalStorage("token");
+    const [temas, setTemas] = useState<Tema[]>([]);
+  
     useEffect(() => {
-        if (token == "") {
-            alert("Você precisa estar logado")
-            navigate("/login")
+      if (token == "") {
+        alert("Você precisa estar logado");
+        navigate("/login");
+      }
+    }, [token]);
 
-        }
-    }, [token])
+    const [tema,setTema] = useState<Tema>({
+        id: 0,
+        descricao: ''
+    })
 
-    const [tema, setTema] = useState<Tema>(
-        {
-            id: 0,
-            descricao: ''
-        })
     const [postagem, setPostagem] = useState<Postagem>({
         id: 0,
         titulo: '',
         texto: '',
-        data: '',
-        tema: null
-    })
+        tema: null,
+        data: ''
+    });
 
-    useEffect(() => { 
+    useEffect(() => {
         setPostagem({
             ...postagem,
             tema: tema
@@ -43,64 +42,64 @@ function CadastroPost() {
     }, [tema])
 
     useEffect(() => {
-        getTemas()
-        if (id !== undefined) {
+        buscaTema()
+        if(id !== undefined) {
             findByIdPostagem(id)
         }
     }, [id])
 
-    async function getTemas() {
-        await busca("/tema", setTemas, {
+    async function buscaTema() {
+        await busca('/temas', setTemas, {
             headers: {
-                'Authorization': token
+                Authorization: token
             }
         })
     }
 
+    useEffect(() => {
+        buscaTema()
+      }, [temas.length])
+
     async function findByIdPostagem(id: string) {
-        await buscaId(`postagens/${id}`, setPostagem, {
+        await buscaId('/postagens/${id}', setPostagem, {
             headers: {
-                'Authorization': token
+                Authorization: token
             }
         })
     }
 
     function updatedPostagem(e: ChangeEvent<HTMLInputElement>) {
-
         setPostagem({
             ...postagem,
             [e.target.name]: e.target.value,
             tema: tema
         })
-
     }
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
 
-        if (id !== undefined) {
+        if(id !== undefined) {
             put(`/postagens`, postagem, setPostagem, {
                 headers: {
-                    'Authorization': token
+                    Authorization: token
                 }
             })
             alert('Postagem atualizada com sucesso');
         } else {
             post(`/postagens`, postagem, setPostagem, {
                 headers: {
-                    'Authorization': token
+                    Authorization: token
                 }
-            })
+            })    
             alert('Postagem cadastrada com sucesso');
-        }
         back()
-
     }
 
     function back() {
         navigate('/posts')
     }
-
+}
  
     return (
         <Container maxWidth="sm" className="topo">
@@ -114,16 +113,16 @@ function CadastroPost() {
                     <Select
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
-                        onChange={(e) => buscaId(`/tema/${e.target.value}`, setTema, {
+                        onChange={(e) => buscaId(`/temas/${e.target.value}`, setTema, {
                             headers: {
-                                'Authorization': token
+                                Authorization: token
                             }
                         })}>
-                        {
-                            temas.map(tema => (
-                                <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
-                            ))
-                        }
+                            {
+                                temas.map(tema => (
+                                    <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
+                                ))
+                            }
                     </Select>
                     <FormHelperText>Escolha um tema para a postagem</FormHelperText>
                     <Button type="submit" variant="contained" color="primary">

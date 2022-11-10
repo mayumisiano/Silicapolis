@@ -32,7 +32,7 @@ function CadastroTema() {
     }, [id])
 
     async function findById(id: string) {
-        buscaId(`/tema/${id}`, setTema, {
+        buscaId(`/temas/${id}`, setTema, {
             headers: {
               'Authorization': token
             }
@@ -50,18 +50,18 @@ function CadastroTema() {
         
         async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
             e.preventDefault()
-            console.log("tema " + JSON.stringify(tema))
+            console.log("temas " + JSON.stringify(tema))
     
             if (id !== undefined) {
                 console.log(tema)
-                put(`/tema`, tema, setTema, {
+                put(`/temas`, tema, setTema, {
                     headers: {
                         'Authorization': token
                     }
                 })
                 alert('Tema atualizado com sucesso');
             } else {
-                post(`/tema`, tema, setTema, {
+                post(`/temas`, tema, setTema, {
                     headers: {
                         'Authorization': token
                     }
@@ -80,7 +80,7 @@ function CadastroTema() {
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro tema</Typography>
-                <TextField value={tema.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth/>
+                <TextField required value={tema.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth/>
                 <Button type="submit" variant="contained" color="primary">
                     Finalizar
                 </Button>
