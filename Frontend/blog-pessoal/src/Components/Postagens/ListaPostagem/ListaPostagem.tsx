@@ -6,11 +6,16 @@ import './ListaPostagem.css';
 import { busca } from '../../../Services/Service';
 import useLocalStorage from 'react-use-localstorage';
 import Postagem from '../../../Models/Postagem';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../Store/Tokens/tokensReducer';
 
 function ListaPostagem() {
   const [posts, setPosts] = useState<Postagem[]>([])
   let navigate = useNavigate();
-  const [token, setToken] = useLocalStorage('token');
+  
+  const token= useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+);
 
   useEffect(() => {
     if (token == "") {

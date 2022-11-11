@@ -8,6 +8,10 @@
     font-weight: "bold" !important;
 }
 
+.subtitulo{
+    font-weight: lighter !important;
+}
+
 .botao{
     border-color: white !important;
     background-color: white !important;

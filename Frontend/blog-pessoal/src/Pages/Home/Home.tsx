@@ -4,12 +4,15 @@ import {Box} from '@mui/material';
 import './Home.css';
 import TabPostagem from "../../Components/Postagens/TabPostagem/TabPostagem";
 import ModalPostagem from "../../Components/Postagens/ModalPostagem/ModalPostagem";
-import useLocalStorage from "react-use-localstorage";
-import { useNavigate } from "react-router-dom";
+import { useNavigate , Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { TokenState } from "../../Store/Tokens/tokensReducer";
 
 function Home(){
     let navigate = useNavigate();
-    const [token, setToken] = useLocalStorage('token');
+    const token= useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
     
     useEffect(() => {
       if (token == "") {
@@ -24,14 +27,17 @@ function Home(){
            <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>
                 <Grid alignItems="center" item xs={6}>
                     <Box paddingX={20} >
-                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className='titulo'>Seja bem vindo(a)!</Typography>
-                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className='titulo'>Expresse aqui os seus pensamentos e opiniões!</Typography>
+                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className='titulo'>Seja bem vinde à Silicapolis!</Typography>
+
+                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className='subtitulo'>Fique por dentro das novidades da Microeletrônica no Brasil.</Typography>
                     </Box>
                     <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>
                             <ModalPostagem />
                         </Box>
-                        <Button variant="outlined" className='botao'>Ver Postagens</Button>
+                        <Link to='/posts'           className="text-decorator-none"> 
+                            <Button variant="outlined" className='botao'>Ver Postagens</Button>
+                        </Link>
                     </Box>
                 </Grid>
                 <Grid item xs={6} >
