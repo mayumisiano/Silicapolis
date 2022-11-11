@@ -6,17 +6,31 @@ import Tema from '../../../Models/Tema';
 import useLocalStorage from 'react-use-localstorage';
 import Postagem from '../../../Models/Postagem';
 import { busca, buscaId, post, put } from '../../../Services/Service';
+import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../Store/Tokens/tokensReducer';
 
 function CadastroPost() {
 
     let navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
-    const [token, setToken] = useLocalStorage("token");
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+      );
     const [temas, setTemas] = useState<Tema[]>([]);
   
     useEffect(() => {
       if (token == "") {
-        alert("Você precisa estar logado");
+        toast.error('Você precisa estar logado', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            theme: "colored",
+            progress: undefined,
+        });
         navigate("/login");
       }
     }, [token]);
@@ -85,14 +99,32 @@ function CadastroPost() {
                     Authorization: token
                 }
             })
-            alert('Postagem atualizada com sucesso');
+            toast.success('Postagem atualizada com sucesso', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         } else {
             post(`/postagens`, postagem, setPostagem, {
                 headers: {
                     Authorization: token
                 }
             })    
-            alert('Postagem cadastrada com sucesso');
+            toast.success('Postagem cadastrada com sucesso', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         back()
     }
 

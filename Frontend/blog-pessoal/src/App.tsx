@@ -2,10 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Estaticos/Navbar/Navbar'
 import Footer from './Components/Estaticos/Footer/Footer'
-import {Grid} from '@material-ui/core';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
-import logo from './logo.svg';
 import './App.css';
 import CadastroUsuario from './Pages/cadastroUsuario/CadastroUsuario';
 import ListaTema from './Components/Temas/ListaTema/ListaTema';
@@ -16,10 +14,13 @@ import DeletarPostagem from './Components/Postagens/DeletarPostagem/DeletarPosta
 import DeletarTema from './Components/Temas/DeletarTema/DeletarTema';
 import {Provider} from 'react-redux';
 import store from './Store/Store';
+import {ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   return (      
     <Provider store={store}>
+      <ToastContainer />
     <Router>
     <Navbar />
     <div style={{ minHeight: '100vh'}}>

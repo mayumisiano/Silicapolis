@@ -14,7 +14,7 @@ function Card() {
         </div>
         <div className="card-info">
           <p>
-          Sou Paula Mayumi, desenvolvedora Java Full Stack pela Generation Brasil. Academicamente, sou tecnóloga em Microeletrônica e já atuei como analista de P&D para empresas de Engenharia e Tecnologia de acordo com as Leis da Informática. 
+          Sou desenvolvedora Java Full Stack pela Generation Brasil. Academicamente, sou tecnóloga em Microeletrônica e já atuei como analista de P&D para empresas de Engenharia e Tecnologia de acordo com as Leis da Informática. 
           Estudei as tecnologias: <span className="span">Java, Springboot, SQL, HTML, CSS, JavaScript, React e Typescript</span>. No meu tempo livre gosto de estudar e ler. Sou movida por desafios, café, código, e tenho paixões nada secretas por back-end, gatos e videogames. 
           </p>
 
