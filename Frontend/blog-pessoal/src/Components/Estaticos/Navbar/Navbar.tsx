@@ -31,17 +31,17 @@ function Navbar (){
         navigate('/login')
     }
     var navbarComponent; 
-
-    if(token != ""){
+    
+    if(token !== ""){
         navbarComponent = <AppBar position="static" style={{ backgroundColor: "#483078"}}>
         <Toolbar variant="dense" >
         <Box style={{ cursor: "pointer" }}> 
+            
             <Typography className="silicapolis" variant="h5">
                 Silicapolis
             </Typography>                        
-        </Box>
+        </Box>        
         
-
         <Grid container direction="row" justifyContent="center">                  
 
             <Box display="flex">
@@ -86,7 +86,7 @@ function Navbar (){
 
             {/* <Grid container direction="row" justifyContent="flex-end">
             <img src="https://cdn-icons-png.flaticon.com/512/911/911412.png" alt="" width="50px" height="50px" />
-            </Grid> */}
+            </Grid> */}            
                 
             </Box>
             </Grid>

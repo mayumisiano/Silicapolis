@@ -37,9 +37,9 @@ function Home(){
            <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>
                 <Grid alignItems="center" item xs={6}>
                     <Box paddingX={20} >
-                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className='titulo'>Seja bem vinde à Silicapolis!</Typography>
+                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className='titulo'>Blog da Mayu</Typography>
 
-                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className='subtitulo'>Fique por dentro das novidades da Microeletrônica no Brasil.</Typography>
+                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className='subtitulo'>Bem vinde! Aqui você encontra postagens sobre games, tecnologia, eletrônica e mais </Typography>
                     </Box>
                     <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>

@@ -94,7 +94,7 @@ function Login() {
                 </Box>
             </Grid>
             <Grid xs={6} style={{
-                backgroundImage: `url(https://i.imgur.com/d5bMdDJ.jpg)`,
+                backgroundImage: `url(https://static.vecteezy.com/system/resources/previews/002/794/133/original/young-woman-working-on-laptop-freelance-or-studying-concept-cute-trendy-illustration-in-flat-style-free-vector.jpg)`,
                 backgroundRepeat: 'no-repeat', width: '100vh', minHeight:'100vh', backgroundSize: 'cover', backgroundPosition:'center'
             }}>
             </Grid>

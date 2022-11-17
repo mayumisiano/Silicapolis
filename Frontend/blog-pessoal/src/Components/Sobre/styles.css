@@ -37,8 +37,8 @@
   }
   
   .card-title {
-    line-height: 7px;
-    font-size: 22px;
+    line-height: 40px; 
+    font-size: 23px;
     width: 100%;
     text-align: center;
     margin: 0.5rem 0 0.2rem 0;
@@ -54,14 +54,14 @@
   }
   
   .card-info {
-    padding: 0 5px;
+    padding: 0 10px;
     text-align: center;
     color: #7d8285;
     font-size: 16px;
   }
   
   .card-info > p {
-    text-align:center;
+    text-align: center;
   }
   
   .card-social {

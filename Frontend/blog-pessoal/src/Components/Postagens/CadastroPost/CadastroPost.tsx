@@ -3,7 +3,6 @@ import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem,
 import './CadastroPost.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import Tema from '../../../Models/Tema';
-import useLocalStorage from 'react-use-localstorage';
 import Postagem from '../../../Models/Postagem';
 import { busca, buscaId, post, put } from '../../../Services/Service';
 import { toast } from 'react-toastify';
@@ -136,7 +135,7 @@ function CadastroPost() {
     return (
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro postagem</Typography>
+                <Typography variant="h3" color="textSecondary" component="h1" align="center">{id === undefined ? <span>Cadastro</span> : <span>Atualização</span>} de postagem</Typography>
                 <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
                 <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
 
@@ -157,8 +156,7 @@ function CadastroPost() {
                             }
                     </Select>
                     <FormHelperText>Escolha um tema para a postagem</FormHelperText>
-                    <Button type="submit" variant="contained" color="primary">
-                        Finalizar
+                    <Button type="submit" variant="contained" color="primary">{id === undefined ? <span>Nova postagem</span> : <span>Atualizar postagem</span>}                        
                     </Button>
                 </FormControl>
             </form>

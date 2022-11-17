@@ -51,7 +51,7 @@ function CadastroUsuario(){
     }
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        if(confirmarSenha == user.senha){
+        if(confirmarSenha === user.senha){
         cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)        
         toast.success('Usuario cadastrado com sucesso', {
             position: "top-right",
@@ -75,7 +75,8 @@ function CadastroUsuario(){
                 progress: undefined,
             });
         }
-    }
+    }    
+
     return (
         <Grid container direction='row' justifyContent='center' alignItems='center'>
             <Grid item xs={6} className='imagem2'></Grid>
